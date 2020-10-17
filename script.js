@@ -71,7 +71,7 @@ function passwordGen(){
       characters = characters.concat(specialCharacters);
       chosenChar.push(random(specialCharacters))
     }
- document.getElementById("card-body").value = chosenChar;
+ //document.getElementById("card-body").value = chosenChar;
 
 
     if (option.numericCharacters) {
@@ -88,16 +88,33 @@ function passwordGen(){
       characters = characters.concat(upperCasedCharacters);
       chosenChar.push(random(upperCasedCharacters))
     }
-      }
 
-
-      
+  for (let i = 0; i < option.length; i++) {
+  let characters = random(characters);
+  finalPassword.push(characters);
     
-    }
-for (let i = 0; i < password.length; i++) {
-  const element = arr [i];
-  
+  }
+
+ for (let i  = 0; i < chosenChar.length; i++) {
+    finalPassword[i]= chosenChar[i];
+  }
+  console.log("finalPassword", finalPassword)
+  return finalPassword.join('')
 }
+}
+
+var generateBtn = document.querySelector('#generate');
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector('#password');
+
+  passwordText.value = password;
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener('click', writePassword);
 
 
     //for - loops through a block of code a number of times
