@@ -25,24 +25,33 @@ function passwordOptions() {
 
   while (!passwordLength && !specialCharacters && !numericCharacters && !lowerCasedCharacters && !upperCasedCharacters) { 
      var passwordLength = (prompt("How many characters in your password?"))
-     var specialCharacters = (prompt("What special characters do you want?"))
-     var numericCharacters = (prompt("What numbers do you want?"))
-     var lowerCasedCharacters = (prompt("What lower case characters do you want?"))
-     var upperCasedCharacters = (prompt("What upper case characters do you want?"))
+     var specialCharacters = (prompt("Would you like to use special characters?"))
+     var numericCharacters = (prompt("Would you like to use numbers?"))
+     var lowerCasedCharacters = (prompt("Would you like to include lower case letters?"))
+     var upperCasedCharacters = (prompt("Would you like to include upper case letters?"))
 
   }
 
-
-  console.log(
-    passwordLength, '—',
-    specialCharacters, '—',
-    numericCharacters, '—',
-    lowerCasedCharacters, '—',
-    upperCasedCharacters
-  )
-
-  
+  //object
+var savedOptions = {
+passwordLength: passwordLength, 
+specialCharacters: specialCharacters,
+numericCharacters: numericCharacters,
+lowerCasedCharacters: lowerCasedCharacters,
+upperCasedCharacters: upperCasedCharacters,
 }
+
+console.log(
+  passwordLength, '—',
+  specialCharacters, '—',
+  numericCharacters, '—',
+  lowerCasedCharacters, '—',
+  upperCasedCharacters
+)
+
+return savedOptions  
+
+
 passwordOptions()
 
 function random(arr) {
@@ -57,54 +66,42 @@ function passwordGen(){
     var includedChar = []
     var chosenChar = []
 
+//conditional
+    if (option.specialCharacters) {
+      characters = characters.concat(specialCharacters);
+      chosenChar.push(random(specialCharacters))
+    }
+ document.getElementById("card-body").value = chosenChar;
 
+
+    if (option.numericCharacters) {
+      characters = characters.concat(numericCharacters);
+      chosenChar.push(random(numericCharacters))
+    }
+
+    if (option.lowerCasedCharacters) {
+      characters = characters.concat(lowerCasedCharacters);
+      chosenChar.push(random(lowerCasedCharacters))
+    }
+    
+    if (option.upperCasedCharacters) {
+      characters = characters.concat(upperCasedCharacters);
+      chosenChar.push(random(upperCasedCharacters))
+    }
+      }
+
+
+      
+    
+    }
+for (let i = 0; i < password.length; i++) {
+  const element = arr [i];
+  
 }
 
 
-
-
-// //for loop to generate password
-// for (let i = 0; i < password.length; i++) {
-//     var type = random(charAt);
-   
-//     for (let j = 0; j < type.character.count; j++) {
-//         password = password + values.charAt(Math.floor(Math.random() * Math.floor(values.length -1))); 
-//     }
-//             i = i + type.characterType.count
-// }
-
-// //add password to textbox/display area
-// alert(password) || display.card(password)
-
-// //set default length display of 128
-// document.getElementById("length").innerHTML = "Length: 128";
-
-// //NEED IF STATEMENT
-// if(document.getElementById("passwordLength").value > 0){
-//     document.getElementById("length").innerHTML = "Length: " + document.getElementById("passwordLength").value;
-// }
-// //NEED ELSE STATEMENT
-// else{
-//     document.getElementById("length").innerHTML = "Length: 1";
-// }
-
-
-/* 
-for (
-  let i = 0; // base/start point
-  i <= 10;    // condition (if statement) // 0 - 11
-  i++        // increment by 1
-){
- console.log(i)
-}
- */
-/*  
-i = 0
-0 <= 11 // true ✓
-1 <= 11 // true ✓
-...
-9 <= 11 // true ✓
-10 <= 11 // true ✓
-11 <= 11 // true ✓
-12 <= 11 // false ✗
-*/
+    //for - loops through a block of code a number of times
+    //for/in - loops through the properties of an object
+    //for/of - loops through the values of an iterable object
+    //while - loops through a block of code while a specified condition is true
+    //do/while - also loops through a block of code while a specified condition is true
