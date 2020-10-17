@@ -18,10 +18,10 @@ function passwordOptions() {
 
   while (!passwordLength && !specialCharacters && !numericCharacters && !lowerCasedCharacters && !upperCasedCharacters) { 
      var passwordLength = (prompt("How many characters in your password?"))
-     var specialCharacters = (prompt("Would you like to use special characters?"))
-     var numericCharacters = (prompt("Would you like to use numbers?"))
-     var lowerCasedCharacters = (prompt("Would you like to include lower case letters?"))
-     var upperCasedCharacters = (prompt("Would you like to include upper case letters?"))
+     var specialCharacters = (confirm("Would you like to use special characters?"))
+     var numericCharacters = (confirm("Would you like to use numbers?"))
+     var lowerCasedCharacters = (confirm("Would you like to include lower case letters?"))
+     var upperCasedCharacters = (confirm("Would you like to include upper case letters?"))
 
   }
 
@@ -43,7 +43,7 @@ console.log(
 )
 
 return savedOptions  
-
+}
 
 // passwordOptions()
 
@@ -58,37 +58,43 @@ function passwordGen() {
     var passwordResult = []
     var includedChar = []
     var chosenChar = []
+ console.log(option)
 
 //conditional
     if (option.specialCharacters) {
-      includedChar = includedChar.concat(specialCharacters);
-      chosenChar.push(random(specialCharacters))
+      includedChar.push.apply(includedChar, specialCharacters);
+      //chosenChar.push(random(specialCharacters))
     }
 
     if (option.numericCharacters) {
-      includedChar = includedChar.concat(numericCharacters);
-      chosenChar.push(random(numericCharacters))
+      includedChar.push.apply(includedChar, numericCharacters);
+      //chosenChar.push(random(numericCharacters))
     }
 
     if (option.lowerCasedCharacters) {
-      includedChar = includedChar.concat(lowerCasedCharacters);
-      chosenChar.push(random(lowerCasedCharacters))
+      includedChar.push.apply(includedChar, lowerCasedCharacters);
+      //chosenChar.push(random(lowerCasedCharacters))
     }
     
     if (option.upperCasedCharacters) {
-      includedChar = includedChar.concat(upperCasedCharacters);
-      chosenChar.push(random(upperCasedCharacters))
+      includedChar.push.apply(includedChar, upperCasedCharacters);
+      //chosenChar.push(random(upperCasedCharacters))
     }
+    console.log(includedChar)
 
-  for (let i = 0; i < option.length; i++) {
-  let characters = random(characters);
+  for (let i = 0; i < option.passwordLength; i++) {
+//let characters = random(characters);
+
+    // pick a random character from the includedChar array
+    let characters = includedChar[Math.floor(Math.random() * includedChar.length)]
+  
   passwordResult.push(characters);
   }
 
- for (let i  = 0; i < chosenChar.length; i++) {
-    passwordResult[i]= chosenChar[i];
-  }
-  console.log("passwordResult", finalPassword)
+  // for (let i  = 0; i < chosenChar.length; i++) {
+  //   passwordResult[i]= chosenChar[i];
+  // }
+  console.log("passwordResult", passwordResult)
   return passwordResult.join('')
 }
 
