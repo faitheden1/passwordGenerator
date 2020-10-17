@@ -12,15 +12,8 @@ var lowerCasedCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
-
-
-var gen = document.querySelector("#generate");
-
-// $("#generate") .click (passwordOptions)
-gen.addEventListener("click", passwordOptions)
-
 function passwordOptions() {
-  let password = ""; // new gen. password
+  // let password = ""; // new gen. password
 
 
   while (!passwordLength && !specialCharacters && !numericCharacters && !lowerCasedCharacters && !upperCasedCharacters) { 
@@ -52,7 +45,7 @@ console.log(
 return savedOptions  
 
 
-passwordOptions()
+// passwordOptions()
 
 function random(arr) {
  var randomIndex = Math.floor(Math.random() * arr.length);
@@ -60,7 +53,7 @@ function random(arr) {
  return randomElement;
 }
 
-function passwordGen(){
+function passwordGen() {
     var option = passwordOptions();
     var passwordResult = []
     var includedChar = []
@@ -68,46 +61,52 @@ function passwordGen(){
 
 //conditional
     if (option.specialCharacters) {
-      characters = characters.concat(specialCharacters);
+      includedChar = includedChar.concat(specialCharacters);
       chosenChar.push(random(specialCharacters))
     }
- //document.getElementById("card-body").value = chosenChar;
-
 
     if (option.numericCharacters) {
-      characters = characters.concat(numericCharacters);
+      includedChar = includedChar.concat(numericCharacters);
       chosenChar.push(random(numericCharacters))
     }
 
     if (option.lowerCasedCharacters) {
-      characters = characters.concat(lowerCasedCharacters);
+      includedChar = includedChar.concat(lowerCasedCharacters);
       chosenChar.push(random(lowerCasedCharacters))
     }
     
     if (option.upperCasedCharacters) {
-      characters = characters.concat(upperCasedCharacters);
+      includedChar = includedChar.concat(upperCasedCharacters);
       chosenChar.push(random(upperCasedCharacters))
     }
 
   for (let i = 0; i < option.length; i++) {
   let characters = random(characters);
-  finalPassword.push(characters);
-    
+  passwordResult.push(characters);
   }
 
  for (let i  = 0; i < chosenChar.length; i++) {
-    finalPassword[i]= chosenChar[i];
+    passwordResult[i]= chosenChar[i];
   }
-  console.log("finalPassword", finalPassword)
-  return finalPassword.join('')
+  console.log("passwordResult", finalPassword)
+  return passwordResult.join('')
 }
-}
+
+
+
+
+
+// var gen = document.querySelector("#generate");
+
+// // $("#generate") .click (passwordOptions)
+// gen.addEventListener("click", passwordOptions)
+
 
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = passwordGen();
   var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
@@ -116,9 +115,3 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-
-    //for - loops through a block of code a number of times
-    //for/in - loops through the properties of an object
-    //for/of - loops through the values of an iterable object
-    //while - loops through a block of code while a specified condition is true
-    //do/while - also loops through a block of code while a specified condition is true
