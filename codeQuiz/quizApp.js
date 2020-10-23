@@ -2,24 +2,24 @@
 (function() {
     var questions = [{
       question: "Which built-in method removes the last element from an array and returns that element?",
-      choices: [last(), get(), pop(), none],
-      correctAnswer: pop()
+      choices: ["last()", "get()", "pop()", "none"],
+      correctAnswer: "pop()"
     }, {
       question: "Which built-in method returns the string representation of the number's value?",
-      choices: [toValue(), toNumber(), toString(), none],
-      correctAnswer: toString()
+      choices: ["toValue()", "toNumber()", "toString()", "none"],
+      correctAnswer: "toString()"
     }, {
       question: "Which of the following function of Boolean object returns the primitive value of the Boolean object?",
-      choices: [toSource(), valueOf(), toString(), none],
-      correctAnswer: valueOf()
+      choices: ["toSource()", "valueOf()", "toString()", "none"],
+      correctAnswer: "valueOf()"
     }, {
       question: "Which function parses a string and returns an integer?",
-      choices: [parseInt(), unshift(), toString(), splice()],
-      correctAnswer: parseInt()
+      choices: ["parseInt()", "unshift()", "toString()", "splice()"],
+      correctAnswer: "parseInt()"
     }, {
       question: "Which method returns the first element that matches a specified CSS selector(s) in the document?",
-      choices: [toValue(), pop(), parseInt(), querySelector()],
-      correctAnswer: querySelector()
+      choices: ["toValue()", "pop()", "parseInt()", "querySelector()"],
+      correctAnswer: "querySelector()"
     }];
 
     //Timer
