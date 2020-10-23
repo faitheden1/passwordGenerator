@@ -23,17 +23,29 @@
     }];
 
     //Timer
-    var count = 15;
-var interval = setInterval(function(){
-  document.getElementById('count').innerHTML=count;
-  count--;
-  if (count === 0){
-    clearInterval(interval);
-    document.getElementById('count').innerHTML='Done';
-    // or...
-    alert("You're out of time!");
+var timerCount = 100
+var timerCount = document.querySelector("#timer")
+timerEl.textContent = timerCount
+var timer = window.setInterval (function () {
+  timerCount --;
+  timerEl.textContent = timerCount
+  if (timerCount === 0) {
+    clearInterval (timer)
   }
-}, 1000);
+}, 1000)
+
+//Internet Timer: 
+//var count = 15;
+//var interval = setInterval(function(){
+  //document.getElementById('count').innerHTML=count;
+  //count--;
+  //if (count === 0){
+   // clearInterval(interval);
+   // document.getElementById('count').innerHTML='Done';
+    // or...
+   // alert("You're out of time!");
+ // }
+//}, 1000);
 
     
     var questionCounter = 0; //Tracks question number
